@@ -1,0 +1,38 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="./styles.css">
+        <title>On Call Report Generator</title>
+    </header>
+    <body>
+      
+        <div class="main-content" id="m1" style="display: flex; align-items:center; justify-content: center; flex-direction:column;">
+            <div class="box">
+            <form action="" id="Form" style="display:flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h1 style="font-size:2rem;">Paste JSON below</h1>
+                <textarea class='ioinput' placeholder="Paste your JSON in the below textbox " id="str1" rows="15" cols="70">
+                </textarea>
+                <br />
+                <div class="sign-in">
+                    <button type="submit" >Submit</button>
+                </div>
+            </form>
+        </div>
+          
+                <div id="valid-data" style="display:none;">
+                    <h1 style="font-size:2rem;">Please enter valid data</h1>
+                </div>
+                <div class="table-content" style="display:flex; align-items:center; justify-content:center; flex-direction: column" id="tb">
+ 
+                    <div  style="display: flex; justify-content: center; align-items:center">
+                    <table id="tt" >
+                    </table>
+                    </div>
+                    <table id="tt1" >
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+        <script src="./script.js"></script>
+</body>
+</html>
