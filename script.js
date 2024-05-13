@@ -11,7 +11,7 @@ function gettingformdetails(){
         event.preventDefault(); //prevents auto reloading
         try{
         let obj=JSON.parse(document.getElementById('str1').value);
-        console.log(obj);
+        // console.log(obj);
         let t1=document.getElementById("valid-data");
         t1.style.display="none";
         tb.style.display="flex";
@@ -73,10 +73,10 @@ function gettingformdetails(){
         return fstr;
     }
     function slidingWindow(arr, windowSize,ans) {
-    console.log("Expected string is"+ans);
+    // console.log("Expected string is"+ans);
     arr=arr.toLowerCase();
     arr=arr. replace(/(\r\n|\n|\r)/gm,""); //regular expression to replace all line breaks with empty space
-    console.log(arr);
+    // console.log(arr);
     for(let i=0;i<arr.length;i++){
         let s1='';
         for(let j=i;j<i+windowSize;j++){
@@ -113,7 +113,7 @@ function gettingdata(data){
    
     for(let i=0;i<data.records.length;i++){
         
-        console.log(data.records[i].assignment_group);
+        // console.log(data.records[i].assignment_group);
         if(data.records[i].assignment_group==="36e37ae36fe755008e4c4f654b3ee421"){
             
             if(data.records[i].priority==1){
@@ -185,18 +185,14 @@ function findassigneduser(group,user,data,i){
     if(data.records[i].assignment_group==="36e37ae36fe755008e4c4f654b3ee421"){
         group="Winserv";
         if(user==="98d8de48930dc6904047b91c5cba10d4") return [group,"AbdulMalik Pasha (9506949)"];
-        else if(user==="9504410") return [group,"Aishwarya Nambiar (9504410)"];
         else if(user==="3afb30c01b9bb418039d7599cc4bcb8b") return [group,"Nitheesh M (9504226)"];
         else if( user==="65ecf84b1bc9a5106e79311d1e4bcbb2") return [group,"Lalitha Varshini (9506080)"];
-        else if(user==="f2eb82372f6c55502d209bacf699b6ba"){
-            return [group,"Janani Murugesan (9503251)"];
-        }
-        else if(user==="a4bfefc01b3d09103cd57661cd4bcba2"){
-            return [group,"Prasanna M (9504625)"];
-        }
-        else if(user==="29e513d31b3e35546e79311d1e4bcb6e"){
-            return [group,"Jennifer Alexander (9506801)"]
-        }
+        else if(user==="f2eb82372f6c55502d209bacf699b6ba")  return [group,"Janani Murugesan (9503251)"];
+        else if(user==="a4bfefc01b3d09103cd57661cd4bcba2") return [group,"Prasanna M (9504625)"];
+        else if(user==="29e513d31b3e35546e79311d1e4bcb6e") return [group,"Jennifer Alexander (9506801)"];
+        else if(user==="8689afc647250a5886a023c4116d432b") return [group,"Blessing V (9506990)"];
+        else if(user==="c8f4522bdb9c4110a9adf2823996196c") return [group,"Aishwarya Nambiar (9504410)"];
+        else if(user==="a04c5f0e936d42984047b91c5cba1063") return [group,"Manivel S (9506989)"];
     }
     else{
         group="Unix";
@@ -266,7 +262,7 @@ function modify_content(unix,winserv,data){
             tableRow.appendChild(tableHead2);
         }
         if(unix.low_impact>0 || winserv.low_impact>0){
-            console.log("Hurrah")
+            // console.log("Hurrah")
             let tableHead2=document.createElement("th");
             tableHead2.innerHTML="<h2>5-Low Impact</h2>";
             tableRow.appendChild(tableHead2);
@@ -493,6 +489,7 @@ function modify_content(unix,winserv,data){
             //"state": "7" Closed
 
             let state1="No Data found";
+            // console.log(data.records[i]);
             if(data.records[i].state==="4") {
                 //Awating User Info
                 state1="Awaiting User Info";
@@ -509,48 +506,57 @@ function modify_content(unix,winserv,data){
             else if(data.records[i].state==="7"){
                 state1="Closed";
             }
-            create_newtable_data(tableRF,data.records[i].number,0);
+            
+            if(!(state1==="No Data found")){
 
-            //Incident State
-            create_newtable_data(tableRF,state1,0);
+               
+                //Incident Number
+                create_newtable_data(tableRF,data.records[i].number,0);
 
-            //Incident Priority
-            create_newtable_data(tableRF,data.records[i].priority,0);
+                //Incident State
+                create_newtable_data(tableRF,state1,0);
 
-            //Assignment Group
-            let arr=findassigneduser(data.records[i].assigned_group,data.records[i].assigned_to,data,i);
-            create_newtable_data(tableRF,arr[0],0);
+                //Incident Priority
+                create_newtable_data(tableRF,data.records[i].priority,0);
 
-
-            //Assigned user
-            create_newtable_data(tableRF,arr[1],0);
-            create_newtable_data(tableRF,data.records[i].short_description,0);
-
-            let ans=dateWithMeridian(data.records[i].sys_created_on);
-
-            create_newtable_data(tableRF,ans,0);
-
-            //Closed date
-
-            let ans1=dateWithMeridian(data.records[i].sys_updated_on);
-            create_newtable_data(tableRF,ans1,0);
+                //Assignment Group
+                let arr=findassigneduser(data.records[i].assigned_group,data.records[i].assigned_to,data,i);
+                create_newtable_data(tableRF,arr[0],0);
 
 
-            //Comments
-            if(state1==="Resolved" || state1==="Closed"){
-                create_newtable_data(tableRF,"Team worked and resolved the incident",0);
+                //Assigned user
+                create_newtable_data(tableRF,arr[1],0);
+                create_newtable_data(tableRF,data.records[i].short_description,0);
+
+                let ans=dateWithMeridian(data.records[i].sys_created_on);
+
+                create_newtable_data(tableRF,ans,0);
+
+                //Closed date
+
+                let ans1=dateWithMeridian(data.records[i].sys_updated_on);
+                create_newtable_data(tableRF,ans1,0);
+
+
+                //Comments
+                if(state1==="Resolved" || state1==="Closed"){
+                    create_newtable_data(tableRF,"Team worked and resolved the incident",0);
+                }
+                else if(state1==="Awaiting User Info"){
+                    create_newtable_data(tableRF,"Team is working on the incident",0);
+                }
+                else if(state1==="Work in Progress"){
+                    create_newtable_data(tableRF,"Team is working on the incident",0);
+                }
+                else if(state1==="Awaiting Vendor"){
+                    create_newtable_data(tableRF,"Team is working on the incident",0);
+                }
+        
+                tableNode1.appendChild(tableRF);
             }
-            else if(state1==="Awaiting User Info"){
-                create_newtable_data(tableRF,"Team is working on the incident",0);
+            else{
+                console.log(data.records[i].number);
             }
-            else if(state1==="Work in Progress"){
-                create_newtable_data(tableRF,"Team is working on the incident",0);
-            }
-            else if(state1==="Awaiting Vendor"){
-                create_newtable_data(tableRF,"Team is working on the incident",0);
-            }
-    
-            tableNode1.appendChild(tableRF);
 
         }
 }
