@@ -7,8 +7,10 @@
         <link rel="stylesheet" href="./styles.css">
         <title>On Call Report Generator</title>
     </header>
-    <body >
-      
+    <body id="bg">
+        <div>
+            <button onclick="removeBackground()" id="b1">Clear</button>
+        </div>
         <div class="main-content" id="m1" style="display: flex; align-items:center; justify-content: center; flex-direction:column;" style="background-image:none;">
             <div class="box">
                 <form action="" id="Form" style="display:flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -24,13 +26,13 @@
             <div id="valid-data" style="display:none;">
                 <h1 style="font-size:2rem;">Please enter valid data</h1>
             </div>
-            <div class="table-content" style="display:flex; align-items:center; justify-content:center; flex-direction: column" id="tb">
+            <div class="table-content" style="display:flex; align-items:center; justify-content:center; flex-direction: column;" id="tb">
 
                 <div  style="display: flex; justify-content: center; align-items:center">
-                <table id="tt" >
+                <table id="tt">
                 </table>
                 </div>
-                <table id="tt1" >
+                <table id="tt1">
                 </table>
             </div>
             </div>
