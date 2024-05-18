@@ -193,6 +193,7 @@ function findassigneduser(group,user,data,i){
         else if(user==="8689afc647250a5886a023c4116d432b") return [group,"Blessing V (9506990)"];
         else if(user==="c8f4522bdb9c4110a9adf2823996196c") return [group,"Aishwarya Nambiar (9504410)"];
         else if(user==="a04c5f0e936d42984047b91c5cba1063") return [group,"Manivel S (9506989)"];
+        else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb" || user==="81c89eb21bfd6594328564e6ec4bcb3e") return [group,"Fayaz Shaik(9506211)"];
     }
     else{
         group="Unix";
@@ -272,7 +273,7 @@ function modify_content(unix,winserv,data){
         tableHead2.innerHTML="<h2>Grand Total</h2>";
 
         //background color
-        tableRow.style.backgroundColor="#358bdb";
+        tableRow.style.backgroundColor="#95d0f5";
         
         tableRow.appendChild(tableHead2);
 
@@ -383,7 +384,7 @@ function modify_content(unix,winserv,data){
         let tD4=document.createElement("td");
         tD4.innerHTML="<p>"+"Grand Total"+"</p>";
         //background color
-        tR4.style.backgroundColor="#358bdb";
+        tR4.style.backgroundColor="#95d0f5";
         tR4.appendChild(tD4);
 
         if(winserv.very_high>0 || unix.very_high>0 ){
@@ -468,7 +469,7 @@ function modify_content(unix,winserv,data){
         tableRow1.appendChild(tableHead4);
         
         //background color
-        tableRow1.style.backgroundColor="#358bdb";
+        tableRow1.style.backgroundColor="#95d0f5";
 
         tableNode1.appendChild(tableRow1);
 
@@ -528,10 +529,11 @@ function modify_content(unix,winserv,data){
                 create_newtable_data(tableRF,arr[1],0);
                 create_newtable_data(tableRF,data.records[i].short_description,0);
 
+                //Created Date
                 let ans=dateWithMeridian(data.records[i].sys_created_on);
 
                 create_newtable_data(tableRF,ans,0);
-
+                // tableRF.firstchild.style.display="inline";
                 //Closed date
 
                 let ans1=dateWithMeridian(data.records[i].sys_updated_on);
@@ -559,4 +561,9 @@ function modify_content(unix,winserv,data){
             }
 
         }
+}
+let removeBackground=()=>{
+    document.getElementById("Form").style.display="none";
+    document.getElementById("b1").style.display="none";
+    document.getElementById("bg").style.backgroundColor="white";
 }
