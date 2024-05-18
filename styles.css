@@ -1,13 +1,21 @@
 h1{
   font-family: sans-serif;
+  display: inline;
   color: #34568B;
 }
-.tbox{
-  width:100%;
-}
+/* .tbox{ */
+  /* width:100%; */
+/* } */
 table,th,td{
   border-collapse:collapse;
 }
+td{
+  white-space: nowrap;
+overflow:hidden;
+}
+/* tr{ */
+  /* display: inline; */
+/* } */
 table{
   /* table-layout: fixed; */
   /* border: 5rem solid; */
@@ -15,12 +23,22 @@ table{
     border: 0.05rem solid;
   }
   h2{
-    font-size:0.7rem;
+    /* font-size:0.7rem; */
+    display: inline;
+    font-size:16px;
     margin:0;
-    padding:0;
+    /* padding:0; */
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-top: 3px;
   }
   p{
-    font-size:0.7rem;
+    /* font-size:0.7rem; */
+    display: inline;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size:16px;
   }
   tr{
     padding:0;
@@ -30,13 +48,14 @@ table{
     text-align: center;
   }
   th{
-    padding: 0.2rem;
+    /* padding: 0.2rem; */
     margin:0;
   }
   td{
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     margin:0;
   }
+  background-color: white;
 }
   
 #dailynotes{
@@ -65,11 +84,12 @@ table{
     font-size:4rem;
   }
   #tt{
+    background-color: white;
     margin-top:0.85%;
     box-shadow: 0 3px 2x 2px rgb(227, 218, 218);
     border: 0.5px solid black;
     border-collapse: collapse;
-    width:96%;
+    /* width:96%; */
     margin-bottom:10%;
   }
   .main-content{
@@ -115,13 +135,18 @@ table{
       font-size: 20%;
     }
     h1{
-      font-size:50%;
+      font-size:16px;
+      /* font-size:50%; */
+      /* display: inline; */
     }
     h1,h2{
       font-weight:bolder;
+      display: inline;
     }
     h2,p,a{
-      font-size:50%;
+      font-size:16px;
+      display: inline;
+      /* font-size:50%; */
     }
     .nouser{
       display:flex;
@@ -144,10 +169,9 @@ table{
       color:white;
       background-color: rgb(0, 92, 51);
       border: none;
-      box-shadow: 10px 5px solid rgb(44, 145, 246);
     }
     p{
-      padding:5px;
+      /* padding:5px; */
     }
     /* table,th,td{  
       border:1px solid;
@@ -173,10 +197,11 @@ table{
     html,body{
       background-image: url('./weather.jpg');
       height:99.39%;
-      width:99.69%;
+      /* width:99.69%; */
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       position: relative;
       background-color: hsl(220, 100%, 97%);
   }
+  
