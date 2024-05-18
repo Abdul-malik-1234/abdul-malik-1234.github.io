@@ -566,4 +566,6 @@ let removeBackground=()=>{
     document.getElementById("Form").style.display="none";
     document.getElementById("b1").style.display="none";
     document.getElementById("bg").style.backgroundColor="white";
+    document.getElementById("htm").style.backgroundImage="none";
+    document.getElementById("bg").style.backgroundImage="none";
 }
