@@ -197,9 +197,9 @@ function findassigneduser(group,user,data,i){
     }
     else{
         group="Unix";
-        if(user==="1d0c01701ba58cd0a6762fc4bd4bcbfb"){
+        if(user==="4944a66b47f90ed086a023c4116d438a"){
             //UNIX
-            return [group,"Prabhu S (9502664)"];
+            return [group,"Vijayan Thangavelu (95070160"];
         }
         else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb"){
             //UNIX
