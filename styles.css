@@ -20,7 +20,7 @@ table{
   /* table-layout: fixed; */
   /* border: 5rem solid; */
   th, td {
-    border: 0.02rem solid;
+    border: 0.09rem solid;
   }
   h2{
     font-family: Cambria, Georgia, serif;
@@ -88,8 +88,8 @@ table{
     background-color: white;
     margin-top:0.85%;
     box-shadow: 0 3px 2x 2px rgb(227, 218, 218);
-    border: 0.1px solid black;
-    border-collapse: collapse;
+    border: 0.15px solid black;
+    /* border-collapse: collapse; */
     /* width:96%; */
     margin-bottom:10%;
   }
