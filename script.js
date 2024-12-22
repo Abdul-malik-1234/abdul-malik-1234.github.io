@@ -1,29 +1,30 @@
-function displayerrormessage(){
-    let t1=document.getElementById("valid-data");
-    t1.style.display="flex";
-    let tb=document.getElementById("tb");
-    tb.style.display="none";
-}
-// modifycontent
-function gettingformdetails(){
-    let form=document.getElementById('Form');
-    form.addEventListener('submit',function(event){
-        event.preventDefault(); //prevents auto reloading
-        try{
-        let obj=JSON.parse(document.getElementById('str1').value);
-        // console.log(obj);
+    function displayerrormessage(){
         let t1=document.getElementById("valid-data");
-        t1.style.display="none";
-        tb.style.display="flex";
-        gettingdata(obj);
-        }
-        catch(err){
-            displayerrormessage();
-        }
-        document.getElementById('str1').value="";
-    })
+        t1.style.display="flex";
+        let tb=document.getElementById("tb");
+        tb.style.display="none";
+    }
 
-}
+    // modifycontent
+    function gettingformdetails(){
+        let form=document.getElementById('Form');
+        form.addEventListener('submit',function(event){
+            event.preventDefault(); //prevents auto reloading
+            try{
+            let obj=JSON.parse(document.getElementById('str1').value);
+            // console.log(obj);
+            let t1=document.getElementById("valid-data");
+            t1.style.display="none";
+            tb.style.display="flex";
+            gettingdata(obj);
+            }
+            catch(err){
+                displayerrormessage();
+            }
+            document.getElementById('str1').value="";
+        })
+
+    }
 
     function dateWithMeridian(content){
         let d1=content.substring(0,10);
@@ -201,7 +202,7 @@ function findassigneduser(group,user,data,i){
         group="Unix";
         if(user==="4944a66b47f90ed086a023c4116d438a"){
             //UNIX
-            return [group,"Vijayan Thangavelu (95070160"];
+            return [group,"Vijayan Thangavelu (95070160)"];
         }
         else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb"){
             //UNIX
@@ -235,6 +236,12 @@ function modify_content(unix,winserv,data){
         while (t2.firstChild) {  
             t2.removeChild(t2.firstChild);  
         }      
+    /* New added code */
+        let t3=document.getElementById("tt2");
+        while (t3.firstChild) {  
+            t3.removeChild(t3.firstChild);  
+        }   
+    
         let tableNode=document.getElementById("tt");
         let tableRow=document.createElement("tr");
         let tableHead1=document.createElement("th");
@@ -479,6 +486,7 @@ function modify_content(unix,winserv,data){
 
         let count=1;
         for(let i=data.records.length-1;i>=0;i--){
+            
             // console.log(data.records[i].number);
 
             let tableRF=document.createElement('tr');
@@ -563,6 +571,76 @@ function modify_content(unix,winserv,data){
             }
 
         }
+
+        //3rd table
+        let tableNode2=document.getElementById("tt2");
+        let ta1=document.createElement("tr");
+        let ta2=document.createElement("th");
+
+        //1st row
+        let ta3=document.createElement("th");
+        ta3.innerHTML="<h2>Work in Progress</h2>";
+        ta1.appendChild(ta3);
+        
+        ta3=document.createElement("th");
+        ta3.innerHTML="<h2>Awaiting User Info </h2>";
+        ta1.appendChild(ta3);
+
+        ta3=document.createElement("th");
+        ta3.innerHTML="<h2>Awaiting Vendor</h2>";
+        ta1.appendChild(ta3);
+
+        ta3=document.createElement("th");
+        ta3.innerHTML="<h2>Total</h2>";
+        ta1.appendChild(ta3);
+
+        tableNode2.appendChild(ta1);
+        //2nd row
+
+        let finalCount=[0,0,0]
+
+        for(let i=data.records.length-1;i>=0;i--){
+            
+            let t3Data=document.createElement('td');
+            //"state": "4" Awaiting User Info
+            //"state": "6" Resolved
+            //"state": "21" Awaiting Vendor
+            //"state": "22" Work in Progress
+            //"state": "7" Closed
+            let totalSum=0
+            // console.log(data.records[i].state)
+            if(data.records[i].state==="22"){
+                // state1="Work in Progress";
+                finalCount[0]++
+                totalSum++
+            }
+            else if(data.records[i].state==="4") {
+                //Awating User Info
+                // state1="Awaiting User Info";
+                finalCount[1]++
+                totalSum++
+            }
+            else if(data.records[i].state==="21"){
+                state1="Awaiting Vendor";
+                finalCount[2]++
+                totalSum++
+            }
+            else{
+                // console.log("Nothing")
+            }
+            
+        }
+        let t3Row=document.createElement('tr');
+        for(let i=0;i<3;i++){
+            console.log(finalCount[i]+"\n----\n")
+            create_newtable_data(t3Row,String (finalCount[i]),0);
+            tableNode2.append(t3Row)
+            
+        }
+        create_newtable_data(t3Row,String (finalCount[0]+finalCount[1]+finalCount[2]),0);
+        tableNode2.append(t3Row)      
+
+
 }
 let removeBackground=()=>{
     document.getElementById("Form").style.display="none";
