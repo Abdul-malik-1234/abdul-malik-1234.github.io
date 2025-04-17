@@ -197,7 +197,7 @@ function findassigneduser(group,user,data,i){
         else if(user==="a04c5f0e936d42984047b91c5cba1063") return [group,"Manivel S (9506989)"];
         else if(user==="83882b13475742d08150539c416d4368") return [group,"Rahul E(9507126)"];
         else if(user==="0f88e713475742d08150539c416d43d4") return [group,"Reshma R(9507127)"]; 
-        else it(user==="7116d8211bc3d5d06e79311d1e4bcb3f") return [group,"Rosario Lawrence (9505828)"]; 
+        else if(user==="7116d8211bc3d5d06e79311d1e4bcb3f") return [group,"Rosario Lawrence (9505828)"]; 
         else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb" || user==="81c89eb21bfd6594328564e6ec4bcb3e") return [group,"Fayaz Shaik(9506211)"];
     }
     else{
