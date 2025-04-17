@@ -182,10 +182,11 @@ function findassigneduser(group,user,data,i){
         "9503251" : "Raagul Vasudevan (9503251)",
         "9505624" : "Janani Murugesan (9503251)",
 
-    };
+    };                                   
     if(data.records[i].assignment_group==="36e37ae36fe755008e4c4f654b3ee421"){
         group="Winserv";
-        if(user==="98d8de48930dc6904047b91c5cba10d4") return [group,"AbdulMalik Pasha (9506949)"];
+        if(user==="97252b6c3bd8a65037139c9c24e45a28") return [group,"Gautham S (9507570)"];  
+        else if(user==="98d8de48930dc6904047b91c5cba10d4") return [group,"AbdulMalik Pasha (9506949)"];
         else if(user==="3afb30c01b9bb418039d7599cc4bcb8b") return [group,"Nitheesh M (9504226)"];
         else if( user==="65ecf84b1bc9a5106e79311d1e4bcbb2") return [group,"Lalitha Varshini (9506080)"];
         else if(user==="f2eb82372f6c55502d209bacf699b6ba")  return [group,"Janani Murugesan (9503251)"];
@@ -195,8 +196,7 @@ function findassigneduser(group,user,data,i){
         else if(user==="c8f4522bdb9c4110a9adf2823996196c") return [group,"Aishwarya Nambiar (9504410)"];
         else if(user==="a04c5f0e936d42984047b91c5cba1063") return [group,"Manivel S (9506989)"];
         else if(user==="83882b13475742d08150539c416d4368") return [group,"Rahul E(9507126)"];
-        else if(user==="0f88e713475742d08150539c416d43d4") return [group,"Reshma R(9507127)"];
-        else if(user==="97252b6c3bd8a65037139c9c24e45a28") return [group,"Gautham S(9507570)"];   
+        else if(user==="0f88e713475742d08150539c416d43d4") return [group,"Reshma R(9507127)"]; 
         else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb" || user==="81c89eb21bfd6594328564e6ec4bcb3e") return [group,"Fayaz Shaik(9506211)"];
     }
     else{
