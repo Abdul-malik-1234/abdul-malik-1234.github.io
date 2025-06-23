@@ -163,9 +163,10 @@ function gettingdata(data){
         }
        
     }
-    modify_content(unix,winserv,data);
     document.getElementById('cptb1').style.display="block";
     document.getElementById('cptb2').style.display="block";
+    modify_content(unix,winserv,data);
+    
 }
 function findassignmentgroup(val){
     
