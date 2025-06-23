@@ -651,3 +651,76 @@ let removeBackground=()=>{
     document.getElementById("htm").style.backgroundImage="none";
     document.getElementById("bg").style.backgroundImage="none";
 }
+
+ document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to all copy buttons
+            document.querySelectorAll('.copy-table-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const table = this.nextElementSibling;
+                    copyTableToClipboard(table, this);
+                });
+            });
+
+            function copyTableToClipboard(table, button) {
+                // Create a range to select the table
+                const range = document.createRange();
+                range.selectNode(table);
+                
+                // Add the range to the window's selection
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                try {
+                    // Execute the copy command
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        // Visual feedback
+                        const originalText = button.textContent;
+                        button.textContent = 'Copied!';
+                        button.style.backgroundColor = '#2196F3';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.style.backgroundColor = '#4CAF50';
+                        }, 2000);
+                    } else {
+                        fallbackCopy(table, button);
+                    }
+                } catch (err) {
+                    fallbackCopy(table, button);
+                }
+                
+                // Clean up
+                window.getSelection().removeAllRanges();
+            }
+
+            // Fallback method using Clipboard API
+            function fallbackCopy(table, button) {
+                let text = '';
+                const rows = table.querySelectorAll('tr');
+                
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('th, td');
+                    text += Array.from(cells).map(cell => cell.textContent).join('\t') + '\n';
+                });
+                
+                navigator.clipboard.writeText(text.trim())
+                    .then(() => {
+                        const originalText = button.textContent;
+                        button.textContent = 'Copied!';
+                        button.style.backgroundColor = '#2196F3';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.style.backgroundColor = '#4CAF50';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                        button.textContent = 'Failed to copy';
+                        button.style.backgroundColor = '#f44336';
+                        setTimeout(() => {
+                            button.textContent = 'Copy Table';
+                            button.style.backgroundColor = '#4CAF50';
+                        }, 2000);
+                    });
+            }
+        });
