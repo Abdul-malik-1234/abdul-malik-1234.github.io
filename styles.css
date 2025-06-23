@@ -206,3 +206,18 @@ table{
       background-color: hsl(220, 100%, 97%);
   }
   
+.copy-table-btn {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+.copy-table-btn:hover {
+            background-color: #45a049;
+        }
