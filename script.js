@@ -223,14 +223,14 @@ function create_newtable_data(tableRow,content,key){
     if(key==0){
         //paragraph element should be added
         let tableDF1=document.createElement("td");
-        tableDF1.innerHTML="<p>"+content+"</p>";
+        tableDF1.innerHTML="<p style="text-align: center; margin: 0 auto;">"+content+"</p>";
         tableRow.appendChild(tableDF1);
 
     }
     if(key==1){
         //h2 element should be added
         let tableDF1=document.createElement("td");
-        tableDF1.innerHTML="<h2>"+content+"</h2>";
+        tableDF1.innerHTML="<h2 style="text-align: center">"+content+"</h2>";
         tableRow.appendChild(tableDF1);
     }
 }
@@ -260,33 +260,33 @@ function modify_content(unix,winserv,data){
         if(unix.very_high>0 || winserv.very_high>0){
 
             let tableHead2=document.createElement("th");
-            tableHead2.innerHTML="<h2>1-Very High</h2>";
+            tableHead2.innerHTML="<h2 style="text-align: center">1-Very High</h2>";
             tableRow.appendChild(tableHead2);
         }
         if(unix.high>0 || winserv.high>0){
             let tableHead2=document.createElement("th");
-            tableHead2.innerHTML="<h2>2-High</h2>";
+            tableHead2.innerHTML="<h2 style="text-align: center">2-High</h2>";
             tableRow.appendChild(tableHead2);
         }
         if(unix.moderate>0 || winserv.moderate>0){
             let tableHead2=document.createElement("th");
-            tableHead2.innerHTML="<h2>3-Moderate</h2>";
+            tableHead2.innerHTML="<h2 style="text-align: center">3-Moderate</h2>";
             tableRow.appendChild(tableHead2);
         }
         if(unix.low>0 || winserv.low>0){
             let tableHead2=document.createElement("th");
-            tableHead2.innerHTML="<h2>4-Low</h2>";
+            tableHead2.innerHTML="<h2 style="text-align: center">4-Low</h2>";
             tableRow.appendChild(tableHead2);
         }
         if(unix.low_impact>0 || winserv.low_impact>0){
             // console.log("Hurrah")
             let tableHead2=document.createElement("th");
-            tableHead2.innerHTML="<h2>5-Low Impact</h2>";
+            tableHead2.innerHTML="<h2 style="text-align: center">5-Low Impact</h2>";
             tableRow.appendChild(tableHead2);
         }
         //Grand total column
         let tableHead2=document.createElement("th");
-        tableHead2.innerHTML="<h2>Grand Total</h2>";
+        tableHead2.innerHTML="<h2 style="text-align: center">Grand Total</h2>";
 
         //background color
         tableRow.style.backgroundColor="#95d0f5";
