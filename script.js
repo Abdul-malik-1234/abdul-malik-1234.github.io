@@ -667,15 +667,19 @@ let removeBackground=()=>{
             });
 
             function copyTableToClipboard(table, button) {
-                // Create a temporary textarea to hold the HTML
-                const tempTextArea = document.createElement('textarea');
-                tempTextArea.value = table.outerHTML;
-                document.body.appendChild(tempTextArea);
-                tempTextArea.select();
-            
+                // Create a range to select the table
+                const range = document.createRange();
+                range.selectNode(table);
+                
+                // Add the range to the window's selection
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
                 try {
+                    // Execute the copy command
                     const successful = document.execCommand('copy');
                     if (successful) {
+                        // Visual feedback
                         const originalText = button.textContent;
                         button.textContent = 'Copied!';
                         button.style.backgroundColor = '#2196F3';
@@ -684,15 +688,15 @@ let removeBackground=()=>{
                             button.style.backgroundColor = '#4CAF50';
                         }, 2000);
                     } else {
-                        console.error('Copy command was unsuccessful.');
+                        fallbackCopy(table, button);
                     }
                 } catch (err) {
-                    console.error('Copy failed:', err);
+                    fallbackCopy(table, button);
                 }
-            
-                document.body.removeChild(tempTextArea);
+                
+                // Clean up
+                window.getSelection().removeAllRanges();
             }
-
 
             // Fallback method using Clipboard API
             function fallbackCopy(table, button) {
