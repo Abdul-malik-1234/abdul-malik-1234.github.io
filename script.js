@@ -203,7 +203,7 @@ function findassigneduser(group,user,data,i){
         else if(user==="51562ef32be96e144733f049d391bf3d") return [group,"Supreeta LNU (9507706)"];
         else if(user==="7a5a4d0e2b7ca69406bff4e3ce91bfae") return [group,"Arunprasath V (9507629)"];
         else if(user==="7116d8211bc3d5d06e79311d1e4bcb3f") return [group,"Rosario Lawrence (9505828)"]; 
-        else if(user==="a7ad828e1b9b1c50629e41d5ec4bcbcb" || user==="81c89eb21bfd6594328564e6ec4bcb3e") return [group,"Fayaz Shaik(9506211)"];
+        else if(user==="32cbf8402b20f6904733f049d391bf70" ) return [group,"Priyadarshini(9507873)"];
     }
     else{
         group="Unix";
@@ -729,3 +729,4 @@ let removeBackground=()=>{
                     });
             }
         });
+
