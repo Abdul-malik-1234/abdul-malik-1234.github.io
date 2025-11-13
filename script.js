@@ -466,7 +466,7 @@ function modify_content(unix,winserv,data){
         tableRow1.appendChild(tableHead4);
 
         tableHead4=document.createElement("th");
-        tableHead4.innerHTML="<h2>Assignment to</h2>";
+        tableHead4.innerHTML="<h2>Assigned to</h2>";
         tableRow1.appendChild(tableHead4);
 
         tableHead4=document.createElement("th");
@@ -730,5 +730,6 @@ let removeBackground=()=>{
                     });
             }
         });
+
 
 
